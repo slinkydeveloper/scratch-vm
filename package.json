@@ -47,6 +47,7 @@
     "scratch-translate-extension-languages": "0.0.20191118205314",
     "socket.io-client": "2.0.4",
     "text-encoding": "0.7.0",
+    "vertx3-eventbus-client": "^3.8.4",
     "worker-loader": "^1.1.1"
   },
   "devDependencies": {

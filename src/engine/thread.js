@@ -186,6 +186,8 @@ class Thread {
          */
         this.warpTimer = null;
 
+        this.params = {};
+
         this.justReported = null;
     }
 
@@ -398,6 +400,35 @@ class Thread {
             if (--callCount < 0) return false;
         }
         return false;
+    }
+
+    /**
+     * Initialize parameters on this thread.
+     */
+    initThreadParams () {
+        if (this.params === null) {
+            this.params = {};
+        }
+    }
+
+    /**
+     * Add a parameter to this thread.
+     * @param {!string} paramName Name of parameter.
+     * @param {*} value Value to set for parameter.
+     */
+    pushThreadParam (paramName, value) {
+        this.initThreadParams();
+        this.params[paramName] = value;
+    }
+
+    /**
+     * Get a parameter from this thread.
+     * @param {!string} paramName Name of parameter.
+     * @return {*} value Value for parameter.
+     */
+    getThreadParam (paramName) {
+        this.initThreadParams();
+        return this.params[paramName];
     }
 }
 
